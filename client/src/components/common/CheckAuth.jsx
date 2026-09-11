@@ -1,13 +1,14 @@
 import React from "react";
 import { Navigate, useLocation } from "react-router";
 
-const isAuthPage =
-  location.pathname.includes("/login") ||
-  location.pathname.includes("/register");
-
 // check authentication and authorization
 const CheckAuth = ({ isAuthenticated, user, children }) => {
+  
   const location = useLocation();
+
+  const isAuthPage =
+    location.pathname.includes("/login") ||
+    location.pathname.includes("/register");
 
   // not authenticated user
   if (!isAuthenticated && !isAuthPage) {
