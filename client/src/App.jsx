@@ -9,11 +9,13 @@ import {
   AdminProducts,
   Dashboard,
 } from "./pages/admin";
+import ShopLayout from "./components/shop/Layout";
+import { ShopAccount, ShopCheckout, ShopHome, ShopListing } from "./pages/shop";
+import NotFound from "./pages/not-found";
 
 function App() {
   return (
     <div className="flex flex-col overflow-hidden bg-white">
-      <h1>Header Component</h1>
       <Routes>
         <Route path="auth" element={<AuthLayout />}>
           <Route path="login" element={<Login />} />
@@ -25,6 +27,13 @@ function App() {
           <Route path="orders" element={<AdminOrders />} />
           <Route path="products" element={<AdminProducts />} />
         </Route>
+        <Route path="shop" element={<ShopLayout />}>
+          <Route index element={<ShopHome />} />
+          <Route path="listing" element={<ShopListing />} />
+          <Route path="checkout" element={<ShopCheckout />} />
+          <Route path="account" element={<ShopAccount />} />
+        </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
