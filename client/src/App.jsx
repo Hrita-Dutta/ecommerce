@@ -13,6 +13,7 @@ import ShopLayout from "./components/shop/Layout";
 import { ShopAccount, ShopCheckout, ShopHome, ShopListing } from "./pages/shop";
 import NotFound from "./pages/not-found";
 import CheckAuth from "./components/common/CheckAuth";
+import UnauthPage from "./pages/unauth-page";
 
 function App() {
   const isAuthenticated = true;
@@ -67,6 +68,7 @@ function App() {
           <Route path="account" element={<ShopAccount />} />
         </Route>
         <Route path="*" element={<NotFound />} />
+        <Route path="unauth-page" element={<UnauthPage />} />
       </Routes>
     </div>
   );
