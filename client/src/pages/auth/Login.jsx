@@ -1,5 +1,5 @@
 import CommonForm from "@/components/common/Form";
-import { registerFormControls } from "@/config";
+import { loginFormControls } from "@/config";
 import React, { useState } from "react";
 import { Link } from "react-router";
 
@@ -30,8 +30,8 @@ const AuthLogin = () => {
         </p>
       </div>
       <CommonForm
-        formControls={registerFormControls}
-        buttonText={"Sign Up"}
+        formControls={loginFormControls}
+        buttonText={"Sign In"}
         formData={formData}
         setFormData={setFormData}
         onSubmit={onSubmit}
