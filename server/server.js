@@ -4,9 +4,13 @@ const mongoose = require("mongoose");
 const db = require("./database/db");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
+const authRouter = require("./routes/auth.routes");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+// DB connection
+db();
 
 app.use(
   cors({
@@ -25,9 +29,7 @@ app.use(
 
 app.use(cookieParser());
 app.use(express.json());
-
-// DB connection
-db();
+app.use("/api/auth", authRouter);
 
 // server listening
 app.listen(PORT, () => {
