@@ -18,7 +18,10 @@ const Register = () => {
 
   function onSubmit(event) {
     event.preventDefault();
-    dispatch(registerUser(formData)).then((data) => console.log(data));
+    dispatch(registerUser(formData)).then((data) => {
+      if (data?.payload?.success) navigate("/auth/login");
+      console.log(data);
+    });
   }
 
   return (
