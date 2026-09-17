@@ -25,13 +25,10 @@ const Register = () => {
           title: data?.payload?.message,
         });
         navigate("/auth/login");
-      }
-      if (!data?.payload?.success) {
-        console.log("error here");
-
+      } else {
         toast.add({
           type: "error",
-          title: data?.payload.message,
+          title: data?.payload?.message,
           priority: "high",
         });
       }
