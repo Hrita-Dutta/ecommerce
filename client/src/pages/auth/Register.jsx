@@ -26,6 +26,15 @@ const Register = () => {
         });
         navigate("/auth/login");
       }
+      if (!data?.payload?.success) {
+        console.log("error here");
+
+        toast.add({
+          type: "error",
+          title: data?.payload.message,
+          priority: "high",
+        });
+      }
 
       console.log(data);
     });
