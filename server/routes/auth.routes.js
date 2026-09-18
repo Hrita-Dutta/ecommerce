@@ -8,5 +8,6 @@ const {
 router.post("/register", registerUser);
 router.post("/register", loginUser);
 router.post("/logout", logoutUser);
+router.get("/check-auth", auth)
 
 module.exports = router;
