@@ -70,7 +70,7 @@ const loginUser = async (req, res) => {
       {
         id: userExist._id,
         email: userExist.email,
-        role: user.role,
+        role: userExist.role,
       },
       process.env.JWT_SECRET,
       { expiresIn: "1h" },
@@ -80,9 +80,9 @@ const loginUser = async (req, res) => {
       success: true,
       message: "Logged in successfully",
       user: {
-        email: checkUser.email,
-        role: checkUser.role,
-        id: checkUser._id,
+        email: userExist.email,
+        role: userExist.role,
+        id: userExist._id,
       },
     });
   } catch (err) {
