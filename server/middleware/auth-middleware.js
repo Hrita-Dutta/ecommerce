@@ -1,3 +1,5 @@
+const jwt = require("jsonwebtoken");
+
 const authMiddleware = async (req, res, next) => {
   const token = req.cookies.token;
   if (!token)
@@ -8,6 +10,7 @@ const authMiddleware = async (req, res, next) => {
 
   try {
     const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+
     req.userInfo = decodedToken;
     next();
   } catch (err) {
