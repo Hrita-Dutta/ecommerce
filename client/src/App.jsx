@@ -14,10 +14,16 @@ import { ShopAccount, ShopCheckout, ShopHome, ShopListing } from "./pages/shop";
 import NotFound from "./pages/not-found";
 import CheckAuth from "./components/common/CheckAuth";
 import UnauthPage from "./pages/unauth-page";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { checkAuth } from "./store/auth-slice";
 
 function App() {
   const { user, isAuthenticated } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(checkAuth());
+  }, [dispatch]);
 
   return (
     <div className="flex flex-col overflow-hidden bg-white">
